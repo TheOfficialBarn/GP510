@@ -7,12 +7,12 @@
 
 
 notes = ["A","B","C","D","E","F","G","_"]
-octaves = [0,1,2,3,4,5,6,7,8]
+octaves = [str(i) for i in range(9)]
 durations = {
-	"s": 2,  "ṡ": 3,
-	"e": 4,  "ė": 6,
-	"q": 8,  "q̇": 12,
-	"h": 16, "ḣ": 24,
+	"s": 2,  "S": 3,
+	"e": 4,  "E": 6,
+	"q": 8,  "Q": 12,
+	"h": 16, "H": 24,
 	"w": 32
 }
 symbols = ["|","⊥"]
@@ -23,6 +23,7 @@ languageList = notes + octaves + symbols + list(durations.keys()) + accidentals
 
 def charInLanguage(inputString):
 	for char in inputString:
+		print(char)
 		if char not in languageList: return False
 	else: return True
 
@@ -33,6 +34,8 @@ def stringInMusicLang(inputString):
 	if not charInLanguage(inputString): return False
 
 	for char in inputString:
+		print(char)
+
 		if state=="S":
 			if char not in notes and char not in symbols: return False
 
@@ -41,10 +44,10 @@ def stringInMusicLang(inputString):
 			elif char in notes[:-1]: state = "N"
 			
 			# Symbols
-			elif char == symbols[0] & stack=="$"+"X"*32:
+			elif char == symbols[0] and stack=="$"+"X"*32:
 				stack = "$"
 				state="S"
-			elif char == symbols[1] & stack=="$"+"X"*32:
+			elif char == symbols[1] and stack=="$"+"X"*32:
 				state="F"
 
 		elif state=="N":
@@ -72,7 +75,7 @@ def stringInMusicLang(inputString):
 
 def main():
 	# inputString = input("Type in your input")
-	inputString = "Ab4ḣ_q⊥"
+	inputString = "Ab4H_q⊥"
 	print(stringInMusicLang(inputString))
 
 main()
