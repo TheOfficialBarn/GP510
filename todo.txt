@@ -4,8 +4,6 @@ To Do List:
     * Make pda
   Liam
     * text for project
-  Aiden
-    * test cases
 
   Everyone:
     * Add their section to latex doc
