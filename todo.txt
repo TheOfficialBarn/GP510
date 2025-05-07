@@ -1,0 +1,11 @@
+To Do List:
+  Sam
+    * Make latex doc
+    * Make pda
+  Liam
+    * text for project
+  Aiden
+    * test cases
+
+  Everyone:
+    * Add their section to latex doc
